@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'react_wordle_back_end.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default='postgresql://postgres:postgres@localhost:5432/mysite',
-#         conn_max_age=600
-#     )
-# }
+else:
+    #Replace the SQLite DATABASES configuration with PostgreSQL:
+    DATABASES = {
+        'default': dj_database_url.config(
+            # Replace this value with your local database's connection string.
+            default='postgresql://wordle_clone_user:rwr3VQFcN4QkjHo4hcnqtkMNamfPiUvt@dpg-crm6dvlds78s73e6gus0-a/wordle_clone',
+            conn_max_age=600
+        )
+    }
 
 
 # Password validation
