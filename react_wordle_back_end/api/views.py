@@ -1,7 +1,7 @@
 import json
 import os
 
-from react_wordle_back_end.react_wordle_back_end.settings import DEBUG
+from react_wordle_back_end.settings import DEBUG
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
